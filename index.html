@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>A Little Hug for Thuỳ Anh 🩵</title>
+  <style>
+    :root {
+      --blue: #b9dcf5;
+      --blue-deep: #75add8;
+      --blue-soft: #eaf6ff;
+      --ink: #45647d;
+      --white: #fff;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      color: var(--ink);
+      font-family: "Trebuchet MS", "Arial Rounded MT Bold", Arial, sans-serif;
+      background: linear-gradient(145deg, #eaf7ff 0%, #d7edff 48%, #f4faff 100%);
+      overflow-x: hidden;
+    }
+    .sky {
+      position: fixed; inset: 0; overflow: hidden; pointer-events: none; z-index: 0;
+    }
+    .cloud {
+      position: absolute; width: 130px; height: 42px; border-radius: 50px;
+      background: rgba(255,255,255,.72); filter: blur(.2px);
+      animation: drift 28s linear infinite;
+    }
+    .cloud:before, .cloud:after {
+      content: ""; position: absolute; background: inherit; border-radius: 50%;
+    }
+    .cloud:before { width: 58px; height: 58px; left: 20px; top: -25px; }
+    .cloud:after { width: 72px; height: 72px; right: 18px; top: -35px; }
+    .c1 { top: 15%; left: -160px; }
+    .c2 { top: 62%; left: -180px; animation-delay: -13s; transform: scale(.75); }
+    .sparkle { position: absolute; color: #fff; opacity: .9; animation: twinkle 2.5s ease-in-out infinite; }
+    .sparkle:nth-child(3) { top: 20%; left: 16%; }
+    .sparkle:nth-child(4) { top: 72%; right: 13%; animation-delay: .8s; }
+    .sparkle:nth-child(5) { top: 38%; right: 9%; animation-delay: 1.3s; }
+    @keyframes drift { from { transform: translateX(0); } to { transform: translateX(calc(100vw + 360px)); } }
+    @keyframes twinkle { 0%,100% { opacity:.25; transform:scale(.8) rotate(0); } 50% { opacity:1; transform:scale(1.25) rotate(18deg); } }
+    .wrap {
+      position: relative; z-index: 1; min-height: 100vh; display: grid;
+      place-items: center; padding: 28px 16px;
+    }
+    .card {
+      width: min(100%, 610px); background: rgba(255,255,255,.82);
+      border: 1px solid rgba(255,255,255,.95); border-radius: 30px;
+      box-shadow: 0 18px 55px rgba(87,145,185,.18);
+      padding: clamp(26px, 6vw, 48px); text-align: center;
+      backdrop-filter: blur(12px); animation: appear .8s ease both;
+    }
+    @keyframes appear { from { opacity:0; transform:translateY(16px) scale(.98); } to { opacity:1; transform:none; } }
+    .eyebrow { letter-spacing: 2px; text-transform: uppercase; font-size: 11px; color: #85b4d6; font-weight: 700; }
+    h1 { font-size: clamp(2rem, 8vw, 3.3rem); margin: 12px 0; color: #659bc3; line-height: 1.12; }
+    h2 { font-size: clamp(1.65rem, 6vw, 2.25rem); color: #659bc3; margin: 8px 0 18px; }
+    p { line-height: 1.8; }
+    .bunny { font-size: 92px; display: inline-block; margin: 16px 0 10px; animation: hop 2s ease-in-out infinite; filter: drop-shadow(0 8px 5px rgba(103,157,193,.15)); }
+    @keyframes hop { 0%,100% { transform:translateY(0) rotate(-3deg); } 50% { transform:translateY(-13px) rotate(3deg); } }
+    .subtitle { font-size: 1.05rem; color: #789bb5; margin: 8px auto 24px; }
+    .btn {
+      border: 0; border-radius: 999px; padding: 14px 25px; margin: 8px 5px;
+      background: #8fc2e7; color: white; font-size: 15px; font-weight: 700;
+      cursor: pointer; box-shadow: 0 7px 0 #6fa8d1, 0 12px 22px rgba(96,157,201,.2);
+      transition: transform .18s, box-shadow .18s, background .18s;
+    }
+    .btn:hover { transform: translateY(-2px); background: #7db6df; }
+    .btn:active { transform: translateY(4px); box-shadow: 0 3px 0 #6fa8d1; }
+    .btn.secondary { background: #fff; color: #76a9ce; border: 1px solid #cce6f8; box-shadow: 0 5px 15px rgba(96,157,201,.1); }
+    .hidden { display: none !important; }
+    .letter {
+      text-align: left; background: #f7fbff; border: 1px dashed #b8d9ef;
+      border-radius: 22px; padding: clamp(18px, 4vw, 28px); margin: 18px 0;
+      max-height: 54vh; overflow-y: auto; scrollbar-color: #b8d9ef transparent;
+    }
+    .letter p { margin: 0 0 14px; font-size: 15px; }
+    .letter .hello { color: #6da5cf; font-weight: 800; font-size: 18px; }
+    .signoff { text-align: center; color: #6da5cf; font-weight: 800; margin-top: 18px !important; }
+    .tiny { color: #91afc6; font-size: 12px; margin-top: 20px; }
+    .music {
+      position: fixed; z-index: 5; right: 16px; top: 16px; border: 1px solid #d3e9f8;
+      border-radius: 999px; background: rgba(255,255,255,.85); color: #6c9fc4;
+      padding: 10px 14px; font-weight: 700; cursor: pointer; box-shadow: 0 5px 18px #9cc9e333;
+    }
+    .floaty {
+      position: fixed; z-index: 10; pointer-events: none; font-size: 23px;
+      animation: floatUp 1.8s ease-out forwards;
+    }
+    @keyframes floatUp { 0% { opacity:0; transform:translateY(0) scale(.6) rotate(0); } 15% {opacity:1;} 100% {opacity:0; transform:translateY(-230px) scale(1.4) rotate(25deg);} }
+    .last-note {
+      margin: 18px auto 0; padding: 17px; border-radius: 18px;
+      background: #eaf6ff; color: #639bc4; font-weight: 800;
+      animation: appear .5s ease both;
+    }
+    @media (max-width: 480px) {
+      .card { border-radius: 24px; }
+      .bunny { font-size: 78px; }
+      .letter { max-height: 52vh; }
+      .music { top: 10px; right: 10px; font-size: 12px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="sky" aria-hidden="true">
+    <div class="cloud c1"></div><div class="cloud c2"></div>
+    <div class="sparkle">✦</div><div class="sparkle">✧</div><div class="sparkle">✦</div>
+  </div>
+
+  <button class="music" id="musicBtn" type="button" aria-label="Bật hoặc tắt nhạc">♫ Music: Off</button>
+
+  <main class="wrap">
+    <section class="card" id="page1">
+      <div class="eyebrow">a tiny surprise made with love</div>
+      <div class="bunny" aria-label="Thỏ con">🐰</div>
+      <h1>Hi, Thuỳ Anh! 🩵</h1>
+      <p class="subtitle">Someone has a little message for you...</p>
+      <button class="btn" id="openBtn">Open your little surprise ♡</button>
+      <p class="tiny">A little reminder that you are loved ☁️</p>
+    </section>
+
+    <section class="card hidden" id="page2">
+      <div class="eyebrow">a warm hug, just for you</div>
+      <div style="font-size:48px; margin:8px 0;">💌</div>
+      <h2>A little hug for you</h2>
+      <div class="letter">
+        <p class="hello">Dear Thuỳ Anh, 🩵</p>
+        <p>Đừng buồn nữa nhéee! 🥺🩵</p>
+        <p>Không sao đâu mà, một bài thi không tốt không có nghĩa là cậu không giỏi đâu. Cậu đã cố gắng rất nhiều rồi, và tớ biết cậu đã luôn chăm chỉ như thế nào.</p>
+        <p>Đôi khi mọi chuyện không diễn ra như mình mong muốn, nhưng điều đó hoàn toàn bình thường. Không phải lúc nào chúng ta cũng có thể làm tốt mọi thứ, và cậu cũng không cần phải quá khắt khe với bản thân mình đâu.</p>
+        <p>Thuỳ Anh giỏi mà! Thật sự rất giỏi luôn ấy. Một bài thi không thể quyết định giá trị hay khả năng của cậu được. Cậu vẫn là một cô gái tuyệt vời, đáng yêu và xứng đáng tự hào về bản thân mình.</p>
+        <p>Bây giờ hãy hít thở thật sâu, nghỉ ngơi một chút, ăn món gì ngon ngon và đừng nghĩ về bài thi nữa nhé.</p>
+        <p><strong>Everything will be okay. I'm always cheering for you!</strong> 🩵</p>
+        <p>Sending you the biggest huggg! 🐰☁️</p>
+        <p class="signoff">You did your best, and that's enough. ♡</p>
+      </div>
+      <button class="btn" id="hugBtn">Send me a hug ♡</button>
+      <button class="btn secondary" id="moreBtn">One more thing...</button>
+      <div id="lastNote" class="last-note hidden">Don't forget how amazing you are, Thuỳ Anh! 🩵🐰</div>
+      <p class="tiny">Made especially to make you smile ✨</p>
+    </section>
+  </main>
+
+  <script>
+    const page1 = document.getElementById('page1');
+    const page2 = document.getElementById('page2');
+    document.getElementById('openBtn').addEventListener('click', () => {
+      page1.classList.add('hidden');
+      page2.classList.remove('hidden');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      burst(9);
+    });
+
+    function burst(amount = 14) {
+      const symbols = ['🩵', '🤍', '♡', '✨', '🐰', '☁️'];
+      for (let i = 0; i < amount; i++) {
+        const el = document.createElement('span');
+        el.className = 'floaty';
+        el.textContent = symbols[Math.floor(Math.random() * symbols.length)];
+        el.style.left = (10 + Math.random() * 80) + 'vw';
+        el.style.top = (55 + Math.random() * 30) + 'vh';
+        el.style.animationDelay = (Math.random() * .45) + 's';
+        document.body.appendChild(el);
+        setTimeout(() => el.remove(), 2400);
+      }
+    }
+    document.getElementById('hugBtn').addEventListener('click', () => burst(24));
+    document.getElementById('moreBtn').addEventListener('click', () => {
+      document.getElementById('lastNote').classList.remove('hidden');
+      burst(12);
+    });
+
+    // Gentle, original ambient tones generated in the browser (no external audio file).
+    let audioCtx = null, master = null, musicTimer = null, noteIndex = 0;
+    const notes = [523.25, 659.25, 783.99, 659.25, 587.33, 698.46, 783.99, 698.46];
+    function playNote() {
+      if (!audioCtx || !master) return;
+      const now = audioCtx.currentTime;
+      const osc = audioCtx.createOscillator();
+      const gain = audioCtx.createGain();
+      osc.type = 'sine';
+      osc.frequency.value = notes[noteIndex % notes.length];
+      gain.gain.setValueAtTime(0.0001, now);
+      gain.gain.exponentialRampToValueAtTime(0.045, now + 0.08);
+      gain.gain.exponentialRampToValueAtTime(0.0001, now + 1.15);
+      osc.connect(gain); gain.connect(master);
+      osc.start(now); osc.stop(now + 1.2);
+      noteIndex++;
+    }
+    const musicBtn = document.getElementById('musicBtn');
+    musicBtn.addEventListener('click', async () => {
+      if (musicTimer) {
+        clearInterval(musicTimer); musicTimer = null;
+        if (master) master.gain.setTargetAtTime(0, audioCtx.currentTime, .15);
+        musicBtn.textContent = '♫ Music: Off';
+      } else {
+        const AudioContext = window.AudioContext || window.webkitAudioContext;
+        if (!AudioContext) { musicBtn.textContent = 'Music unavailable'; return; }
+        audioCtx = audioCtx || new AudioContext();
+        await audioCtx.resume();
+        master = audioCtx.createGain();
+        master.gain.value = 0.55;
+        master.connect(audioCtx.destination);
+        playNote();
+        musicTimer = setInterval(playNote, 650);
+        musicBtn.textContent = '♫ Music: On';
+      }
+    });
+  </script>
+</body>
+</html>
